@@ -1,0 +1,18 @@
+<h1>index article</h1>
+
+<% @articles.each do |d| %>
+<div class="box">
+<span><%= d.updated_at %></span>
+<p>title:<%= d.title %></p>
+<p>text:<%= d.text %></p>
+
+<ul>
+	<li><%= link_to 'show', article_path(d)%></li>
+	<li><%= link_to 'edit', edit_article_path(d)%></li>
+	<li><%= link_to 'destory', article_path(d),method: :delete, data:{confirm: 'ok?'} %></li>
+</ul>
+
+</div>
+<% end %>
+
+<%= link_to 'new',new_article_path %>

@@ -2,6 +2,16 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
+# Prefix Verb   URI Pattern                  Controller#Action
+#     articles GET    /articles(.:format)          articles#index
+#              POST   /articles(.:format)          articles#create
+#  new_article GET    /articles/new(.:format)      articles#new
+# edit_article GET    /articles/:id/edit(.:format) articles#edit
+#      article GET    /articles/:id(.:format)      articles#show
+#              PATCH  /articles/:id(.:format)      articles#update
+#              PUT    /articles/:id(.:format)      articles#update
+#              DELETE /articles/:id(.:format)      articles#destroy
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
@@ -12,7 +22,9 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+    resources :articles do
+      resources :comments
+    end
 
   # Example resource route with options:
   #   resources :products do
