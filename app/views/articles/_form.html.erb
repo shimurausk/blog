@@ -1,4 +1,4 @@
-<%= form_for @article do |f| %>
+<%= form_for @article, html:{class:"pure-form pure-form-aligned"} do |f| %>
 
 	<% if @article.errors.any? %>
 		<div id="error_explanation"></div>
@@ -10,11 +10,14 @@
 		</div>
 	<% end %>
 
-	<%= f.label :title %>
-	<%= f.text_field :title %>
-
-	<%= f.label :text %>
-	<%= f.text_area :text %>
+	<div class="pure-control-group">
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+	</div>
+	<div class="pure-control-group">
+		<%= f.label :text %>
+		<%= f.text_area :text %>
+	</div>
 
 	<%= f.submit %>
 

@@ -1,18 +1,14 @@
-<h1>index article</h1>
+<%= render 'header' %>
 
-<% @articles.each do |d| %>
-<div class="box">
-<span><%= d.updated_at %></span>
-<p>title:<%= d.title %></p>
-<p>text:<%= d.text %></p>
+<section>
+  <div class="contents pure-g">
+    <div class="postslist pure-u-2-3">
+      <%= render 'contents' %>
+    </div>
+    <div class="sidenavi pure-u-1-3">
+      <%= render 'side' %>
+    </div>
+  </div>
+</section>
 
-<ul>
-	<li><%= link_to 'show', article_path(d)%></li>
-	<li><%= link_to 'edit', edit_article_path(d)%></li>
-	<li><%= link_to 'destory', article_path(d),method: :delete, data:{confirm: 'ok?'} %></li>
-</ul>
-
-</div>
-<% end %>
-
-<%= link_to 'new',new_article_path %>
+<%= render 'footer' %>

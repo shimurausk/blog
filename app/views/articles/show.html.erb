@@ -1,16 +1,34 @@
-<h1>show article</h1>
+<%= render 'header' %>
 
-<p><%= @article.title %></p>
-<p><%= @article.text %></p>
+<section>
+  <div class="contents pure-g">
+    <div class="postslist pure-u-2-3">
+		<article>
+			<div class="post">
+		      <h2><%= @article.title %></h2><span><%= @article.updated_at %></span>
+		      <div class="box"><%= @article.text %></div>
+		      <div class="comment">
+		      	<h3>Comments</h3>
+		        <%= render @article.comments  %>
+				<h3>Add a comment:</h3>
+				<%= render 'comments/form' %>
+		    </div>
+		</article>
+    </div>
+    <div class="sidenavi pure-u-1-3">
+      <%= render 'side' %>
+    </div>
+  </div>
+</section>
 
-<h2>Comments</h2>
-<%= render @article.comments  %>
 
 
+<%= render 'footer' %>
 
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
-
-
-<%= link_to 'top', articles_path %>
-<%= link_to 'edit', edit_article_path(@article)%>
+<div class="dev">
+  <ul>
+    <li><%= link_to 'top', articles_path %></li>
+	<li><%= link_to 'edit', edit_article_path(@article)%></li>
+    <li><%= link_to 'delete', articles_path , method: :delete,data:{confirm:"Are you delete?"} %></li>
+  </ul>
+</div>
