@@ -18,6 +18,9 @@
 		<%= f.label :text %>
 		<%= f.text_area :text %>
 	</div>
+	<div class="pure-control-group">
+		<%= f.select :status,[["下書き","draft"],["公開","public"]] %>
+	</div>
 
 	<%= f.submit %>
 

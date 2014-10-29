@@ -15,6 +15,7 @@
 <table class="pure-table pure-table-bordered">
 <tr>
 	<td>タイトル</td>
+	<td>状態</td>
 	<td>カテゴリー</td>
 	<td>タグ</td>
 	<td>コメント</td>
@@ -22,7 +23,8 @@
 </tr>
 <% @articles.each do |article|  %>
 	<tr>
-		<td><%= link_to article.title, article_path(article) %> <%= link_to '編集', edit_article_path(article) %> <%= link_to '削除', articles_path , method: :delete,data:{confirm:"この記事を削除してもよろしいですか?"} %></td>
+		<td><%= link_to article.title, article_path(article) %> <%= link_to '編集', edit_article_path(article) %> <%= link_to '削除', article_path(article) , method: :delete,data:{confirm:"この記事を削除してもよろしいですか?"} %></td>
+		<td><%= article.status %></td>
 		<td></td>
 		<td></td>
 		<td></td>

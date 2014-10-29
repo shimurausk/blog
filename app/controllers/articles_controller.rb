@@ -22,10 +22,15 @@ class ArticlesController < ApplicationController
 
 	def show
 		@article = Article.find(params[:id])
+		#binding.pry
+		# if @article.status == 'draft'
+		# 	redirect_to '/public/404.html'
+		# end	
 	end
 
 	def index
 		@articles = Article.all
+		
 	end
 
 	def edit
@@ -44,6 +49,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def destroy
+		binding.pry
 		@article = Article.find(params[:id])
 
 		@article.destroy
@@ -52,6 +58,6 @@ class ArticlesController < ApplicationController
 
 	private
 		def article_params
-			params.require(:article).permit(:title,:text)
+			params.require(:article).permit(:title,:text,:status)
 		end
 end
