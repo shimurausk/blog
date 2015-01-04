@@ -46,7 +46,8 @@ Rails.application.routes.draw do
     resources :articles do
       resources :comments
     end
-
+  get 'articles/category/:category', to: 'articles#category', as: :category    
+  get 'articles/tag/:tag' => 'articles#tag', as: :tag
   # Example resource route with options:
   #   resources :products do
   #     member do

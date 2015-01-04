@@ -19,6 +19,18 @@
 		<%= f.text_area :text %>
 	</div>
 	<div class="pure-control-group">
+		<%= f.label :category %>
+		<%= f.text_field :category %>
+	</div>
+	<div class="pure-control-group">
+		<%= f.label :tag_list %>
+		<%= f.text_field :tag_list %>
+	</div>
+	<div class="pure-control-group">
+		<%= f.label :avatar %>
+		<%= f.file_field :avatar %>
+	</div>
+	<div class="pure-control-group">
 		<%= f.select :status,[["下書き","draft"],["公開","public"]] %>
 	</div>
 

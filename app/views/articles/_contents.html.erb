@@ -3,18 +3,13 @@
   		<% if d.status == 'public' %>
 	  		<div class="post">
 			  <h2><%= d.title %></h2><span><%= d.updated_at %></span>
+			  <% if d.tags.any? %>
+		      <span><%= raw d.tags.map(&:name).map { |t| link_to t, tag_path(d)}.join(', ') %></span>
+		      <% end %>
 			  <div class="box"><%= d.text %></div>
 			  <div>
 			  	<button><%= link_to 'show', article_path(d)%></button>
 			  </div>
-			</div>
-
-			<div class="dev">
-				<ul>
-				    <li><%= link_to 'new',new_article_path %></li>
-				    <li><%= link_to 'edit', edit_article_path(d)%></li>
-					<li><%= link_to 'destory', article_path(d),method: :delete, data:{confirm: 'ok?'} %></li>
-				</ul>
 			</div>
 		 <% end %>
 	 <% end %>
