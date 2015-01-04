@@ -24,12 +24,3 @@
 
 
 <%= render 'footer' %>
-
-<div class="dev">
-  <ul>
-		<li><%= link_to 'top', articles_path %></li>
-		<li><%= link_to 'edit', edit_article_path(@article)%></li>
-		<li><%= link_to 'delete', articles_path , method: :delete,data:{confirm:"Are you delete?"} %></li>
-		<li><%= link_to 'Dashborad',dashborads_path %></li>
-  </ul>
-</div>
