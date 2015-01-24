@@ -1,35 +1,31 @@
-<h1>Dashborad</h1>
+<div class="dev">
+	<strong>Dashborad</strong>
 
-<!-- <ul>
-	<li>投稿</li>
-	<li>コメント</li>
-	<li>画像</li>
-	<li>ユーザ</li>
-</ul> -->
+	<div class="new">
+		<p><%= link_to '新規投稿',new_article_path, :class => "btn btn-primary" %></p>	
+	</div>
 
-<div class="new">
-	<h2>投稿</h2>
-	<p><%= link_to '新規投稿',new_article_path %></p>	
+	<div class="table-responsive">
+		<table class="table table-bordered">
+		<tr>
+			<td>タイトル</td>
+			<td>状態</td>
+			<td>カテゴリー</td>
+			<td>タグ</td>
+			<td>コメント</td>
+			<td>日時</td>
+		</tr>
+		<% @articles.each do |article|  %>
+			<tr>
+				<td><%= link_to article.title, article_path(article) %>
+				<p><%= link_to '編集', edit_article_path(article), :class => "btn btn-info" %> <%= link_to '削除', article_path(article), :class => "btn btn-warning" , method: :delete,data:{confirm:"この記事を削除してもよろしいですか?"} %></p></td>
+				<td><%= article.status %></td>
+				<td><%= article.category %></td>
+				<td><%= article.tags.map(&:name).map {|t| t}.join(', ') %></td>
+				<td><%= article.comments.any? ? 'あり':'なし' %></td>
+				<td><%= article.updated_at.strftime('%Y/%m/%d %H:%M:%S')  %></td>
+			</tr>
+		<% end %>
+		</table>
+	</div>
 </div>
-
-<table class="pure-table pure-table-bordered">
-<tr>
-	<td>タイトル</td>
-	<td>状態</td>
-	<td>カテゴリー</td>
-	<td>タグ</td>
-	<td>コメント</td>
-	<td>日時</td>
-</tr>
-<% @articles.each do |article|  %>
-	<tr>
-		<td><%= link_to article.title, article_path(article) %>
-		<p><%= link_to '編集', edit_article_path(article) %> <%= link_to '削除', article_path(article) , method: :delete,data:{confirm:"この記事を削除してもよろしいですか?"} %></p></td>
-		<td><%= article.status %></td>
-		<td><%= article.category %></td>
-		<td><%= article.tags.map(&:name).map {|t| t}.join(', ') %></td>
-		<td><%= article.comments.any? ? 'あり':'なし' %></td>
-		<td><%= article.updated_at %></td>
-	</tr>
-<% end %>
-</table>

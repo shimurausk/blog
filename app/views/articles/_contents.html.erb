@@ -2,13 +2,17 @@
   	<% @articles.each do |d| %>
   		<% if d.status == 'public' %>
 	  		<div class="post">
-			  <h2><%= d.title %></h2><span><%= d.updated_at %></span>
-			  <% if d.tags.any? %>
-		      <span><%= raw d.tags.map(&:name).map { |t| link_to t, tag_path(d)}.join(', ') %></span>
-		      <% end %>
+			  <h2><%= d.title %></h2>
+				<div class="option">
+				  <strong><%= d.updated_at.strftime('%Y/%m/%d') %></strong>
+				  category:<span><%= link_to d.category, category_path(d.category) %></span>
+				  <% if d.tags.any? %>
+			      <span><%= raw d.tags.map(&:name).map { |t| link_to t, tag_path(d)}.join(', ') %></span>
+			    <% end %>
+		    </div>
 			  <div class="box"><%= d.text %></div>
-			  <div>
-			  	<button><%= link_to 'show', article_path(d)%></button>
+			  <div class="more">
+			  	<%= link_to '続きを見る', article_path(d), :class => "btn btn-default" %>
 			  </div>
 			</div>
 		 <% end %>

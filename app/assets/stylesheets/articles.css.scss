@@ -6,19 +6,20 @@ $basebgcolor: #e5e5e5;
 $basemargin: 8px;
 $baselinkcolor : #464646;
 $sidelinkcolor: #429e99;
-$basefontsize : 100%;
+$basefontsize : 120%;
 
 body{
-	background:$basebgcolor;
+	background:white;
 	font-size: $basefontsize;
 }
 
 .header{
-	margin: $basemargin*2 $basemargin*6;
-	padding: $basemargin*2 0;
+	margin: 0 $basemargin*6;
+	padding: 0 0 $basemargin;
+	border-bottom: 1px solid $basebgcolor;
 	a {
-	text-decoration:none;
-	color: $baselinkcolor;
+		text-decoration:none;
+		color: $baselinkcolor;
 	}
 	ul{
 		text-align:right;
@@ -29,8 +30,8 @@ body{
 	li.contact a {
 		background: #333;
 		color: #fff;
-		padding: 8px 16px;
-		margin-left: 8px;
+		padding: $basemargin $basemargin*2;
+		margin-left: $basemargin;
 		&:hover{
 			opacity:0.7;
 		}
@@ -38,9 +39,9 @@ body{
 }
 
 .contents{
-	margin: $basemargin*2 $basemargin*6;
+	margin: $basemargin*2 $basemargin*4;
 	h2{
-		margin:4px 0;
+		margin:$basemargin/2 0;
 	}
 	.option{
 		font-size:80%;
@@ -50,7 +51,7 @@ body{
 		}
 	}
 	.photo{
-		margin: 8px auto;
+		margin: $basemargin auto;
 		img {
 			width: 100%;
 		}
@@ -63,16 +64,16 @@ body{
 .postslist {
 	background: white;
 	box-shadow: 1px 1px 1px #ccc;
+	font-size: 150%;
 	a {
 		color: $baselinkcolor;
 		text-decoration:none;
 	}
 	h2{
-		font-size: $basefontsize *2.4;
 		text-shadow: -1px -1px 0px #eee;
 	}
 	.btn{
-		margin:16px 0;
+		margin:$basemargin*2 0;
 		clear:both;
 		button{
 			border:none;
@@ -86,12 +87,37 @@ body{
 .post{
 	padding: 0 $basemargin*2;
 	color: #333;
+	.box{
+		margin: $basemargin 0;
+	}
+	.option{
+		strong{
+			font-weight: normal;
+		}
+		span{
+			margin: $basemargin;
+		}
+	}
 }
 
 .sidenavi {
-
+	font-size: 150%;
+	.search {
+		margin: $basemargin 0 $basemargin*3;
+		height: $basemargin*4;
+		input {
+			margin-right: 6px;
+			width: 100%;
+		}
+		button{
+			//float: right;
+			position: absolute;
+			top: 6px;
+			right: 14px;
+		}
+	}
 	 .box {
-	 	margin-bottom:24px;
+	 	margin-bottom:$basemargin*3;
 		padding: $basemargin $basemargin*2;
 		background: $baselinkcolor;
 		color: white;
@@ -99,31 +125,19 @@ body{
 	}
 
 	h3 {
-		margin: 0;
-		font-size: $basefontsize *1.5;
+		margin: $basemargin/2 0;
 	}
 	ul{
 		padding:0 $basemargin*2;
-
 	}
 	a{
-	color:$sidelinkcolor;
+		color:$sidelinkcolor;
 	}
 }
  
-.side {
-	margin: 0px $basemargin*2;
-}
-
-
-
 .footer{
 	background: #efefef;
 	padding: $basemargin*2 $basemargin*6;
-}
-
-.dev{
-	//display:none;
 }
 
 .field_with_errors {
@@ -133,7 +147,42 @@ body{
 
 .tag_cloud{
 	line-height:1.6;
-	.s{ font-size:10px}
-	.m{ font-size:12px}
-	.l{ font-size:14px}
+	.s{ font-size:60%}
+	.m{ font-size:80%}
+	.l{ font-size:100%}
 }
+
+.dev{
+	margin: 0 auto;
+	width: 90%;
+	strong {
+		font-size: 200%;
+	}
+	table {
+		font-size: 150%;
+		border: 1px solid #eee;
+	}
+}
+
+
+@media only screen and (max-width: 768px) {
+	.header {
+			margin:0 auto;
+			text-align: center;
+		}
+	.postslist {
+		margin-bottom: $basemargin*3;
+		box-shadow: 0px 1px 0px #ccc;
+	}
+	.sidenavi .search button {
+		top: -1px;
+	}
+}
+
+
+
+
+
+
+
+

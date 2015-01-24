@@ -1,3 +1,4 @@
+
 <%= form_for @article, html:{class:"pure-form pure-form-aligned"} do |f| %>
 
 	<% if @article.errors.any? %>
@@ -10,30 +11,30 @@
 		</div>
 	<% end %>
 
-	<div class="pure-control-group">
+	<div class="form-group">
 		<%= f.label :title %>
-		<%= f.text_field :title %>
+		<%= f.text_field :title, :class => "form-control" %>
 	</div>
-	<div class="pure-control-group">
+	<div class="form-group">
 		<%= f.label :text %>
-		<%= f.text_area :text %>
+		<%= f.text_area :text, :class => "form-control" %>
 	</div>
-	<div class="pure-control-group">
+	<div class="form-group">
 		<%= f.label :category %>
-		<%= f.text_field :category %>
+		<%= f.text_field :category, :class => "form-control" %>
 	</div>
-	<div class="pure-control-group">
+	<div class="form-group">
 		<%= f.label :tag_list %>
-		<%= f.text_field :tag_list %>
+		<%= f.text_field :tag_list, :class => "form-control" %>
 	</div>
-	<div class="pure-control-group">
+	<div class="form-group">
 		<%= f.label :avatar %>
 		<%= f.file_field :avatar %>
 	</div>
-	<div class="pure-control-group">
+	<div class="form-group">
 		<%= f.select :status,[["下書き","draft"],["公開","public"]] %>
 	</div>
 
-	<%= f.submit %>
+	<div class="form-group"><%= f.submit  :class => "btn btn-default"%></div>
 
-<% end %> 
+<% end %>
