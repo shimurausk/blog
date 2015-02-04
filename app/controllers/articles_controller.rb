@@ -23,10 +23,12 @@ class ArticlesController < ApplicationController
 		@articles.each do |t|
 			#binding.pry
 			#raw d.tags.map(&:name).map { |t| link_to t, tag_path(d)}.join(', ')
-			if(t.tags.any?)
-				t.tags.each do |hadTag|
-					#binding.pry
-					@articles_tags.push(hadTag.name)
+			if t.status == 'public'
+				if(t.tags.any?)
+					t.tags.each do |hadTag|
+						#binding.pry
+						@articles_tags.push(hadTag.name)
+					end
 				end
 			end
 			#t.tags.any? ? @articles_tags.push(t.tags.map(&:name)) : ''
