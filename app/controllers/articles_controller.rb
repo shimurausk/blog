@@ -5,14 +5,11 @@ class ArticlesController < ApplicationController
 
 	def get_category
 		#@articles_hava_category = Blog.where("category not?",nil)
-		#binding.pry
 		@articles_hava_category = Article.where(status:'public')
-		#binding.pry
 		@articles_category = []
 		@articles_hava_category.each do |c|
 			@articles_category.push(c.category)
-		end 
-		#binding.pry
+		end
 		@articles_category = @articles_category.uniq()
 	end
 
@@ -21,7 +18,6 @@ class ArticlesController < ApplicationController
 		@articles_tags = []
 
 		@articles.each do |t|
-			#binding.pry
 			#raw d.tags.map(&:name).map { |t| link_to t, tag_path(d)}.join(', ')
 			if t.status == 'public'
 				if(t.tags.any?)
@@ -33,8 +29,6 @@ class ArticlesController < ApplicationController
 			end
 			#t.tags.any? ? @articles_tags.push(t.tags.map(&:name)) : ''
 		end
-		
-		#binding.pry
 		@articles_tags = @articles_tags.uniq()
 	end
 
@@ -44,7 +38,6 @@ class ArticlesController < ApplicationController
 
 	def tag
 		@tag = Tag.find_by_name(params[:tag]).articles
-		#binding.pry
 	end
 
 	def related_post
@@ -71,7 +64,6 @@ class ArticlesController < ApplicationController
 	def show
 		@articles = Article.new
 		@article = Article.find(params[:id])
-		#binding.pry
 		# if @article.status == 'draft'
 		# 	redirect_to '/public/404.html'
 		# end	
@@ -80,7 +72,6 @@ class ArticlesController < ApplicationController
 	def index
 		@articles = Article.all.order("id DESC")
 		@tags = Tag.all
-		#binding.pry
 	end
 
 	def edit
@@ -101,7 +92,6 @@ class ArticlesController < ApplicationController
 	def destroy
 		binding.pry
 		@article = Article.find(params[:id])
-
 		@article.destroy
 		redirect_to articles_path		
 	end

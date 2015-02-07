@@ -1,12 +1,12 @@
+<% if user_signed_in? %> 
+	<div class="dev">
+		<h1>Dashborad</h1>
 
-<div class="dev">
-	<h1>Dashborad</h1>
-
-	<ul>
-		<li><%= link_to '投稿',dashborads_path %></li>
-		<li>コメント</li>
-		<li>画像</li>
-		<li>ユーザ</li>
-	</ul>
-
-</div>
+		<ul>
+			<li><%= link_to '投稿',dashborads_path %></li>
+			<li>コメント</li>
+			<li>画像</li>
+			<li>ユーザ</li>
+		</ul>
+	</div>
+<% end %>

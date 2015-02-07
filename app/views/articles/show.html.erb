@@ -3,24 +3,18 @@
 <section>
   <div class="contents blog row">
     <div class="postslist col-sm-12 col-md-8">
-		<article>
-			<div class="post">
-		      <h2><%= @article.title %></h2>
-					<div class="option">
-					  <strong><%= @article.updated_at.strftime('%Y/%m/%d') %></strong>
-					  category:<span><%= link_to @article.category, category_path(@article.category) %></span>
-					  <% if @article.tags.any? %>
-				      Tag:<span><%= raw @article.tags.map(&:name).map { |t| link_to t, tag_path(@article)}.join(', ') %></span>
-				    <% end %>
-			    </div>
-		      <div class="box"><%= @article.text %></div>
-		      <!-- <div class="comment">
-		      	<h3>Comments</h3>
-		        <%= render @article.comments  %>
-				<h3>Add a comment:</h3>
-				<%= render 'comments/form' %>
-		    </div> -->
-		</article>
+			<article>
+				<div class="post">
+			      <h2><%= @article.title %></h2>
+						<div class="option">
+						  <strong><%= @article.updated_at.strftime('%Y/%m/%d') %></strong>
+						  category:<span><%= link_to @article.category, category_path(@article.category) %></span>
+						  <% if @article.tags.any? %>
+					      Tag:<span><%= raw @article.tags.map(&:name).map { |t| link_to t, tag_path(@article)}.join(', ') %></span>
+					    <% end %>
+				    </div>
+			      <div class="box"><%= @article.text %></div>
+			</article>
     </div>
     <div class="sidenavi col-sm-12 col-md-4">
       <%= render 'side' %>
