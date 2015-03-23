@@ -7,6 +7,23 @@ $basemargin: 8px;
 $baselinkcolor : #464646;
 $sidelinkcolor: #429e99;
 $basefontsize : 120%;
+$basetextcolor : #333;
+
+@mixin opacity($opacity) {
+     opacity: $opacity;
+     $opacityIE: $opacity * 100;
+     filter: alpha(opacity=$opacityIE);
+}
+
+@mixin btn($bg,$color){
+	background: $bg;
+	color: $color;
+	padding: $basemargin*2;
+	border-radius: $basemargin;
+	&:hover{
+		@include opacity(0.7);
+	}
+}
 
 body{
 	background:white;
@@ -17,29 +34,36 @@ body{
 	margin: 0 $basemargin*6;
 	padding: 0 0 $basemargin;
 	border-bottom: 1px solid $basebgcolor;
+	.h1{
+		margin: $basemargin 0;
+	}
 	a {
 		text-decoration:none;
 		color: $baselinkcolor;
 	}
+
 	ul{
+		margin: 0;
+		padding: 0;
 		text-align:right;
-	}
-	ul li {
-		display: inline;
-	}
-	li.contact a {
-		background: #333;
-		color: #fff;
-		padding: $basemargin $basemargin*2;
-		margin-left: $basemargin;
-		&:hover{
-			opacity:0.7;
+		li {
+			padding: 0;
+			list-style: none;
+			height: 58px;
 		}
+		li.contact a {
+			position: absolute;
+			top: 56px;
+		  right: 5%;
+		  @include btn(#333,#fff);
+			//margin-left: $basemargin;
 		}
+	}
 }
 
 .contents{
-	margin: $basemargin*2 $basemargin*4;
+	margin: $basemargin*2 auto;
+	width: 95%;
 	h2{
 		margin:$basemargin/2 0;
 	}
@@ -62,9 +86,8 @@ body{
 }
 
 .postslist {
-	background: white;
+	background: #fff;
 	box-shadow: 1px 1px 1px #ccc;
-	font-size: 150%;
 	a {
 		color: $baselinkcolor;
 		text-decoration:none;
@@ -72,21 +95,12 @@ body{
 	h2{
 		text-shadow: -1px -1px 0px #eee;
 	}
-	.btn{
-		margin:$basemargin*2 0;
-		clear:both;
-		button{
-			border:none;
-			background:#eee;
-			color:#333;
-			font-size:80%;
-		}
-	}
 }
 
 .post{
+	margin-bottom: $basemargin*4;
 	padding: 0 $basemargin*2;
-	color: #333;
+	color: $basetextcolor;
 	.box{
 		margin: $basemargin 0;
 	}
@@ -101,48 +115,45 @@ body{
 }
 
 .sidenavi {
-	font-size: 150%;
-	.search {
-		margin: $basemargin 0 $basemargin*3;
-		height: $basemargin*4;
-		input {
-			margin-right: 6px;
-			width: 100%;
+	.side {
+	  width: 95%;
+	  float: right;
+		.search {
+			position: relative;
+			margin: $basemargin 0 $basemargin*3;
+			height: $basemargin*6;
+			input {
+				margin-right: 6px;
+				width: 95%;
+			}
+			button{
+				position: absolute;
+				right: 0;
+				height: 51px;
+			}
 		}
-		button{
-			//float: right;
-			position: absolute;
-			top: 6px;
-			right: 14px;
+		 .box {
+		 	margin-bottom:$basemargin*3;
+			padding: $basemargin $basemargin*2;
+			background: $baselinkcolor;
+			color: white;
+			box-shadow: 1px 1px 4px #999;
 		}
-	}
-	 .box {
-	 	margin-bottom:$basemargin*3;
-		padding: $basemargin $basemargin*2;
-		background: $baselinkcolor;
-		color: white;
-		box-shadow: 1px 1px 4px #999;
-	}
-
-	h3 {
-		margin: $basemargin/2 0;
-	}
-	ul{
-		padding:0 $basemargin*2;
-	}
-	a{
-		color:$sidelinkcolor;
+		h3 {
+			margin: $basemargin/2 0;
+		}
+		ul{
+			padding:0 $basemargin*2;
+		}
+		a{
+			color:$sidelinkcolor;
+		}
 	}
 }
  
 .footer{
 	background: #efefef;
 	padding: $basemargin*2 $basemargin*6;
-}
-
-.field_with_errors {
-	float: left;
-	overflow: hidden;
 }
 
 .tag_cloud{
@@ -154,28 +165,29 @@ body{
 
 .dev{
 	margin: 0 auto;
-	width: 90%;
+	width: 95%;
 	strong {
-		font-size: 200%;
-	}
-	table {
 		font-size: 150%;
-		border: 1px solid #eee;
 	}
 }
 
 
 @media only screen and (max-width: 768px) {
 	.header {
-			margin:0 auto;
-			text-align: center;
+		margin:0 auto;
+		text-align: center;
+		ul{
+			li.contact a {
+				top: 80px;
+			}
 		}
+	}
 	.postslist {
 		margin-bottom: $basemargin*3;
 		box-shadow: 0px 1px 0px #ccc;
 	}
 	.sidenavi .search button {
-		top: -1px;
+		top: -14px;
 	}
 }
 

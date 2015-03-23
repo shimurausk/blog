@@ -1,8 +1,8 @@
 
-<%= form_for @article, html:{class:"pure-form pure-form-aligned"} do |f| %>
+<%= form_for @article, html:{class:"pure-form pure-form-stacked"} do |f| %>
 
 	<% if @article.errors.any? %>
-		<div id="error_explanation"></div>
+		<div id="error_explanation">
 			<ul>
 				<% @article.errors.full_messages.each do |msg| %>
 				<li><%= msg %></li>
@@ -11,30 +11,33 @@
 		</div>
 	<% end %>
 
-	<div class="form-group">
+	<div class="pure-control-group">
 		<%= f.label :title %>
 		<%= f.text_field :title, :class => "form-control" %>
 	</div>
-	<div class="form-group">
+	<div class="pure-control-group">
 		<%= f.label :text %>
 		<%= f.text_area :text, :class => "form-control" %>
 	</div>
-	<div class="form-group">
+	<div class="pure-control-group">
 		<%= f.label :category %>
 		<%= f.text_field :category, :class => "form-control" %>
 	</div>
-	<div class="form-group">
+	<div class="pure-control-group">
 		<%= f.label :tag_list %>
 		<%= f.text_field :tag_list, :class => "form-control" %>
 	</div>
-	<div class="form-group">
+	<div class="pure-control-group">
 		<%= f.label :avatar %>
 		<%= f.file_field :avatar %>
 	</div>
-	<div class="form-group">
+	<div class="pure-control-group">
 		<%= f.select :status,[["下書き","draft"],["公開","public"]] %>
 	</div>
 
-	<div class="form-group"><%= f.submit  :class => "btn btn-default"%></div>
-
+	<div class="pure-control-group">
+		<%= f.submit  :class => "pure-button pure-button-primary"%>
+		<%= link_to 'back to dashborad',dashborads_path,:class => 'pure-button' %>
+	</div>
+	
 <% end %>
