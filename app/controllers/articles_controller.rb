@@ -1,13 +1,15 @@
 class ArticlesController < ApplicationController
 
+	include ApplicationHelper
+
 	before_action :get_category
 	before_action :get_tags
 
 	def get_category
-		#@articles_hava_category = Blog.where("category not?",nil)
-		@articles_hava_category = Article.where(status:'public')
+		#@articles_have_category = Blog.where("category not?",nil)
+		@articles_have_category = Article.where(status:'public')
 		@articles_category = []
-		@articles_hava_category.each do |c|
+		@articles_have_category.each do |c|
 			@articles_category.push(c.category)
 		end
 		@articles_category = @articles_category.uniq()
@@ -47,6 +49,8 @@ class ArticlesController < ApplicationController
 
 	def new
 		@article = Article.new
+		all_category
+		all_tag
 	end
 
 	def create
@@ -76,6 +80,8 @@ class ArticlesController < ApplicationController
 
 	def edit
 		@article = Article.find(params[:id])
+		all_category
+		all_tag
 	end
 
 	def update
@@ -90,7 +96,6 @@ class ArticlesController < ApplicationController
 	end
 
 	def destroy
-		binding.pry
 		@article = Article.find(params[:id])
 		@article.destroy
 		redirect_to articles_path		
