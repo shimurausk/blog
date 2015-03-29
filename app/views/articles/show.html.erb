@@ -13,7 +13,7 @@
 					      Tag:<span><%= raw @article.tags.map(&:name).map { |t| link_to t, tag_path(@article)}.join(', ') %></span>
 					    <% end %>
 				    </div>
-			      <div class="box"><%= @article.text %></div>
+			      <div class="box"><%= markdown @article.text %></div>
 			</article>
     </div>
     <div class="sidenavi pure-u-1 pure-u-md-1-3">

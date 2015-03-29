@@ -14,7 +14,7 @@
 							  category:<span><%= link_to d.category, category_path(d.category) %></span>
 							  <span><%#= d.category %></span>
 					    </div>
-						  <div class="box"><%#= image_tag d.avatar.url %><%= d.text %></div>
+						  <div class="box"><%#= image_tag d.avatar.url %><%= markdown d.text %></div>
 						  <div class="more">
 						  	<%= link_to '続きを見る', article_path(d), :class => "pure-button" %>
 						  </div>
