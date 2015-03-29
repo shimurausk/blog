@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+.adminbar {
+  background: #efefef;
+  font-size: 75%;
+  padding: 0 32px;
+}
+
+ .devise {
+   margin: 20px auto;
+   text-align: center; 
+   display:table;
+ }
+
+ .devise .login{
+ 	display:table-cell;
+  vertical-align:middle;
+  text-align:left;
+ }

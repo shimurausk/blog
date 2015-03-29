@@ -55,8 +55,8 @@ body{
 			position: absolute;
 			top: 56px;
 		  right: 5%;
-		  @include btn(#333,#fff);
-			//margin-left: $basemargin;
+		  @include btn(#464646,#fff);
+			padding: $basemargin $basemargin*2;
 		}
 	}
 }
