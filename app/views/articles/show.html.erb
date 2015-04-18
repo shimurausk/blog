@@ -1,5 +1,5 @@
 <%= render 'header' %>
-
+<% if @article.status == 'public' or user_signed_in? %>	
 <section>
   <div class="contents blog pure-g">
     <div class="postslist pure-u-1 pure-u-md-2-3">
@@ -14,6 +14,7 @@
 					    <% end %>
 				    </div>
 			      <div class="box"><%= markdown @article.text %></div>
+			      <%= render 'sns' %>
 			</article>
     </div>
     <div class="sidenavi pure-u-1 pure-u-md-1-3">
@@ -21,5 +22,5 @@
     </div>
   </div>
 </section>
-
+<% end %>
 <%= render 'footer' %>

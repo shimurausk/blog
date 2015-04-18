@@ -5,11 +5,12 @@
     <div class="postslist pure-u-1 pure-u-md-2-3">
       <article>
 				<% @categorys.each do |d| %>
-					<% if d.status %>	
+					<% if d.status  == 'public' %>		
 				  	<div class="post">
 						  <h2><%= d.title %></h2>
 						  <div class="option">
 							  <strong><%= d.updated_at.strftime('%Y/%m/%d') %></strong>
+							  Category:<span><%= link_to d.category, category_path(d.category) %></span>
 							  <% if d.tags.any? %>
 						      Tag:<span><%= raw d.tags.map(&:name).map { |t| link_to t, tag_path(t)}.join(', ') %></span>
 						    <% end %>

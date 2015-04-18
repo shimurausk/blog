@@ -24,7 +24,6 @@ class ArticlesController < ApplicationController
 			if t.status == 'public'
 				if(t.tags.any?)
 					t.tags.each do |hadTag|
-						#binding.pry
 						@articles_tags.push(hadTag.name)
 					end
 				end
