@@ -21,6 +21,7 @@
 	</div>
 	<div class="pure-control-group">
 		<%= f.label :category %>
+		<%# binding.pry %>
 		<%= f.select :category,options_for_select(@all_category),{:prompt => 'カテゴリーを選択'}, {:class => 'form-control'} %>
 		<%= f.text_field :category,:placeholder => "新規カテゴリー", :class => "form-control inline" %>
 	</div>

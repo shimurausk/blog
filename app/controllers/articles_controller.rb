@@ -43,7 +43,6 @@ class ArticlesController < ApplicationController
 
 	def related_post
 		@article = Article.all
-		
 	end
 
 	def new
@@ -53,13 +52,13 @@ class ArticlesController < ApplicationController
 	end
 
 	def create
-		#render plain: params[:article].inspect
 		@article = Article.new(article_params)
-
 		if @article.save
 			redirect_to @article
 			else
-			render 'new'
+				# all_category
+				# all_tag
+				render 'new'
 		end
 		
 	end
@@ -67,9 +66,6 @@ class ArticlesController < ApplicationController
 	def show
 		@articles = Article.new
 		@article = Article.find(params[:id])
-		# if @article.status == 'draft'
-		# 	redirect_to '/public/404.html'
-		# end	
 	end
 
 	def index
@@ -89,6 +85,8 @@ class ArticlesController < ApplicationController
 		if @article.update(article_params)
 			redirect_to @article
 			else
+			all_category
+			all_tag
 			render 'edit'
 		end
 		
