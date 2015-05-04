@@ -1,3 +1,7 @@
 NoticeMailer#contact_mail
 
-<%= @greeting %>, find me in app/views/notice_mailer/contact_mail.text.erb
+<%= @greeting %>
+
+Name: <%= @contact.name %>
+Email: <%= @contact.email %>
+Message: <%= @contact.message %>

@@ -1,0 +1,34 @@
+// Place all the styles related to the contacts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.contact{
+	margin: 0 48px 32px;
+	.note{
+		font-size: 80%;
+	}
+	.submit{
+		text-align: center;
+	}
+	dd{
+		margin: 0 0 16px;
+		input,textarea{
+			width: 95%;
+		}
+	}
+	.errors {
+	  color: #CA3C3C;
+	  font-size: 80%;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.contact{
+		margin: 0 auto 32px;
+		width: 95%;
+		.note{
+			font-size: 80%;
+		}
+	}
+}
+

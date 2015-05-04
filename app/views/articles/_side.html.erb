@@ -16,14 +16,6 @@
 	  </div>
 	  <div class="box">
 	  	<h3>Tag</h3>
-	    <ul>
-		  	<% @articles_tags.each do |t| %>
-		  	<li><%=  link_to t,tag_path(t) %></li>
-	      <% end %>
-	    </ul>
-	  </div>
-	  <div class="box">
-	  	<h3>Tag</h3>
 	    <div class="tag_cloud">
 			<% tag_cloud Article.tag_counts, %W[s m l] do |t,css_class| %>
 				<%= link_to t.name, tag_path(t.name), class: css_class %>

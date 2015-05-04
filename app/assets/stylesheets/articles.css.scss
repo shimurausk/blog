@@ -52,7 +52,7 @@ body{
 		  float: right;
 		  list-style: none;
 		}
-		li.contact a {
+		li.contactbtn a {
 		  margin-top: $basemargin*2;
 			text-align: center;
 		  width: $basemargin*10;
@@ -186,19 +186,39 @@ body{
 @media only screen and (max-width: 768px) {
 	.header {
 		margin:0 auto;
-		text-align: center;
+		width: 95%;
 		ul{
-			li.contact a {
-				top: 80px;
+			li{
+					position: absolute;
+					top:0;
+					right: 16px;
+				 a {
+					top: 80px;
+				}
 			}
 		}
 	}
 	.postslist {
 		margin-bottom: $basemargin*3;
-		box-shadow: 0px 1px 0px #ccc;
+		box-shadow: none;
+		border-bottom: 1px solid #ccc;
+		.post{
+			padding: 0;
+			.sns_btn {
+			  padding-left: 0;
+			}
+		}
 	}
-	.sidenavi .search button {
-		top: -14px;
+	.sidenavi{
+		.side {
+			width:100%;
+			form{
+				position:relative;
+			}
+		}
+		 .search button {
+			top: -14px;
+		}
 	}
 }
 
