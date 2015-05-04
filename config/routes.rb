@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'contacts' => 'contacts#index'
+  match 'contacts/confirm' ,:via => :post
+  match 'contacts/create' ,:via => :post
+
   devise_for :users, :controllers => {
   :sessions => 'users/sessions',
   :registrations => 'users/registrations'

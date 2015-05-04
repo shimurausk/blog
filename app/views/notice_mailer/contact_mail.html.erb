@@ -1,5 +1,10 @@
-<h1>NoticeMailer#contact_mail</h1>
+<strong>お問い合わせ</strong>
 
 <p>
-  <%= @greeting %>, find me in app/views/notice_mailer/contact_mail.html.erb
+  <%= @greeting %>
 </p>
+<div>--------------------------</div>
+<p>Name: <%= @contact.name %></p>
+<p>Email: <%= @contact.email %></p>
+<p>Message: <%= @contact.message %></p>
+<div>--------------------------</div>
