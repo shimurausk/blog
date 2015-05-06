@@ -35,7 +35,7 @@ body{
 	padding: 0 0 $basemargin;
 	border-bottom: 1px solid $basebgcolor;
 	.h1{
-		margin: $basemargin 0;
+		margin: $basemargin 0 0;
 	}
 	a {
 		text-decoration:none;
@@ -131,16 +131,19 @@ body{
 	  float: right;
 		.search {
 			position: relative;
-			margin: $basemargin 0 $basemargin*3;
+			margin: 0 0 $basemargin*3;
 			height: $basemargin*6;
 			input {
 				margin-right: 6px;
 				width: 95%;
+				height:50px;
 			}
 			button{
 				position: absolute;
-				right: 0;
-				height: 51px;
+				top: 0;
+        right: 0;
+        margin: 0;
+				height: 50px;
 			}
 		}
 		 .box {
@@ -215,9 +218,6 @@ body{
 			form{
 				position:relative;
 			}
-		}
-		 .search button {
-			top: -14px;
 		}
 	}
 }
