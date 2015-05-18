@@ -17,8 +17,11 @@
 	  <div class="box">
 	  	<h3>Tag</h3>
 	    <div class="tag_cloud">
+	    <%# tagに関してはstatusは見ていない。ので、1つだけの場合にstatusがdraftだったら非表示  %>
 			<% tag_cloud Article.tag_counts, %W[s m l] do |t,css_class| %>
-				<%= link_to t.name, tag_path(t.name), class: css_class %>
+				<% if t.count > 1 %>
+					<%= link_to t.name, tag_path(t.name), class: css_class %>
+				<% end %>
 			<% end %>
 	    </div>
 	  </div>
