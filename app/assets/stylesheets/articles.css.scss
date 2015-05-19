@@ -183,7 +183,16 @@ body{
 	strong {
 		font-size: 150%;
 	}
+	.pure-form-stacked{
+		.s_category,.s_tag{
+			display: inline;
+		}
+		.new_category,.new_tag{
+			display: none;
+		}	
+	}
 }
+
 
 
 @media only screen and (max-width: 768px) {

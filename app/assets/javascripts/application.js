@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function () {
+  $('.btn_toggle').click(function(){
+      $(this).next().toggle();
+  });
+});
