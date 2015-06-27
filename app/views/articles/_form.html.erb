@@ -21,15 +21,13 @@
 	</div>
 	<div class="pure-control-group">
 		<%= f.label :category %>
-		<%= f.select :category,options_for_select(@all_category),{:prompt => 'カテゴリーを選択'}, {:class => 'form-control s_category'} %>
+		<%= f.select :category,options_for_select(@all_category),{:prompt => 'カテゴリーを選択'}, {:class => 'form-control category'} %>
 		<span class="btn_toggle pure-button">新規カテゴリー</span>
-		<div class="new_category"><%= f.text_field :category,:placeholder => "新規カテゴリー", :class => "form-control inline" %></div>
 	</div>
 	<div class="pure-control-group">
 		<%= f.label :tag_list %>
-		<%= f.select :tag_list,options_for_select(@all_tag),{:prompt => 'タグを選択'}, {:class => 'form-control s_tag'} %>
+		<%= f.select :tag_list,options_for_select(@all_tag),{:prompt => 'タグを選択'}, {:class => 'form-control tag'} %>
 		<span class="btn_toggle pure-button">新規タグ</span>
-		<div class="new_tag"><%= f.text_field :tag_list,:placeholder => "新規タグ", :class => "form-control inline" %></div>
 	</div>
 	<div class="pure-control-group">
 		<%= f.label :avatar %>
