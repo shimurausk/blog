@@ -17,6 +17,15 @@
 
 $(function () {
   $('.btn_toggle').click(function(){
-      $(this).next().toggle();
+  	var which = $(this).parents('.pure-control-group').find('select').attr('class');
+  	if($(this).next().is('.new_category')){
+  		$(this).next().remove();
+  		$(this).text('New '+which);
+  	} else {
+  		var html = '<div class="new_category"><input class="form-control inline" id="article_category" name="article[category]" placeholder="新規カテゴリー" type="text"></div>';
+      $(this).parent().append(html);
+      $(this).text('キャンセル');
+  	}
   });
+
 });
