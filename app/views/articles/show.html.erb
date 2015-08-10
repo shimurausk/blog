@@ -1,19 +1,19 @@
 <%= render 'header' %>
-<% if @article.status == 'public' or user_signed_in? %>	
+<% if @articles.status == 'public' or user_signed_in? %>	
 <section>
   <div class="contents blog pure-g">
     <div class="postslist pure-u-1 pure-u-md-2-3">
 			<article>
 				<div class="post">
-			      <h2><%= @article.title %></h2>
+			      <h2><%= @articles.title %></h2>
 						<div class="option">
-						  <strong><%= @article.updated_at.strftime('%Y/%m/%d') %></strong>
-						  category:<span><%= link_to @article.category, category_path(@article.category) %></span>
-						  <% if @article.tags.any? %>
-					      Tag:<span><%= raw @article.tags.map(&:name).map { |t| link_to t, tag_path(@article)}.join(', ') %></span>
+						  <strong><%= @articles.updated_at.strftime('%Y/%m/%d') %></strong>
+						  category:<span><%= link_to @articles.category, category_path(@articles.category) %></span>
+						  <% if @articles.tags.any? %>
+					      Tag:<span><%= raw @articles.tags.map(&:name).map { |t| link_to t, tag_path(@articles)}.join(', ') %></span>
 					    <% end %>
 				    </div>
-			      <div class="box"><%= markdown @article.text %></div>
+			      <div class="box"><%= markdown @articles.text %></div>
 			      <%= render 'sns' %>
 			</article>
     </div>

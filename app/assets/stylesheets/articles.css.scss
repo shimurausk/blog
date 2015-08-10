@@ -133,12 +133,12 @@ body{
 			position: relative;
 			margin: 0 0 $basemargin*3;
 			height: $basemargin*6;
-			input {
+			.search_input {
 				margin-right: 6px;
 				width: 95%;
 				height:50px;
 			}
-			button{
+			.search_go{
 				position: absolute;
 				top: 0;
         right: 0;

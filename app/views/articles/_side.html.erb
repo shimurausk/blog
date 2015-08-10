@@ -1,10 +1,10 @@
 <aside>
   <div class="side">
 	  <div class="search">
-	  	<form action="" class="pure-form">
-		  	<input type="text" placeholder="検索">
-		  	<button type="submit" class="pure-button">Search</button>
-	  	</form>
+	  	<%= search_form_for @q,url: articles_search_path ,class: "pure-form" do |f| %> 
+	  	  <%= f.search_field :text_cont,class: "search_input" %>
+	  	  <%= f.submit 'Search',class: "pure-button search_go" %>
+	  	<% end %>
 	  </div>
 	  <div class="box">
 	  	<h3>Category</h3>

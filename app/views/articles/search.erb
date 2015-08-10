@@ -1,0 +1,33 @@
+<%= render 'header' %>
+
+<section>
+  <div class="contents blog pure-g">
+    <div class="postslist pure-u-1 pure-u-md-2-3">
+      <article>
+				<% @articles.each do |d| %>
+					<% if d.status  == 'public' %>		
+				  	<div class="post">
+						  <h2><%= d.title %></h2>
+						  <div class="option">
+							  <strong><%= d.updated_at.strftime('%Y/%m/%d') %></strong>
+							  Category:<span><%= link_to d.category, category_path(d.category) %></span>
+							  <% if d.tags.any? %>
+						      Tag:<span><%= raw d.tags.map(&:name).map { |t| link_to t, tag_path(t)}.join(', ') %></span>
+						    <% end %>
+					    </div>
+						  <div class="box"><%#= image_tag d.avatar.url %><%= markdown d.text %></div>
+						  <div class="more">
+						  	<%= link_to '続きを見る', article_path(d), :class => "pure-button" %>
+						  </div>
+						</div>
+					<% end %>
+				<% end %>
+			</article>
+    </div>
+    <div class="sidenavi pure-u-1 pure-u-md-1-3">
+      <%= render 'side' %>
+    </div>
+  </div>
+</section>
+
+<%= render 'footer' %>

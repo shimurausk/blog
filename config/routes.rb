@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   :registrations => 'users/registrations'
 }
  
-
+match 'articles/search',to:'articles#search',via:['post','get']
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -58,6 +58,8 @@ Rails.application.routes.draw do
     end
   get 'articles/category/:category', to: 'articles#category', as: :category    
   get 'articles/tag/:tag' => 'articles#tag', as: :tag
+  #get'articles/search' => 'articles#search', as: :search
+
   # Example resource route with options:
   #   resources :products do
   #     member do
