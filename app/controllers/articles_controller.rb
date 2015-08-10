@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
 
 	before_action :get_category
 	before_action :get_tags
+	before_action :search_form
 
 	def get_category
 		#@articles_have_category = Blog.where("category not?",nil)
@@ -33,12 +34,22 @@ class ArticlesController < ApplicationController
 		@articles_tags = @articles_tags.uniq()
 	end
 
+	def search_form
+		@q = Article.search(params[:q])
+		@search = @q.result().reverse()
+	end
+
 	def category
 		@categorys = Article.where(category: params[:category])
 	end
 
 	def tag
 		@tag = Tag.find_by_name(params[:tag]).articles
+	end
+
+	def search
+		@articles = Article.search(params[:q]).result().reverse()
+
 	end
 
 	def related_post
@@ -64,12 +75,12 @@ class ArticlesController < ApplicationController
 	end
 
 	def show
-		@articles = Article.new
-		@article = Article.find(params[:id])
+		@articles = Article.find(params[:id])
 	end
 
 	def index
 		@articles = Article.all.order("id DESC")
+		@article = Article.new
 		@tags = Tag.all
 	end
 
