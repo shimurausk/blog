@@ -7,7 +7,7 @@
 				  <strong><%= d.updated_at.strftime('%Y/%m/%d') %></strong>
 				  	Category:<span><%= link_to d.category, category_path(d.category) %></span>
 				  <% if d.tags.any? %>
-			      Tag:<span><%= raw d.tags.map(&:name).map { |t| link_to t, tag_path(d)}.join(', ') %></span>
+			      Tag:<span><%= raw d.tags.map(&:name).map { |t| link_to t, tag_path(t)}.join(', ') %></span>
 			    <% end %>
 		    </div>
 			  <div class="box"><%= markdown d.text %></div>
