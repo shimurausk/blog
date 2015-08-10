@@ -105,6 +105,13 @@ body{
 	color: $basetextcolor;
 	.box{
 		margin: $basemargin 0;
+		code{
+			padding: 16px;
+			border: 1px solid #eee;
+			border-radius: 4px;
+			background: #f5f5f5;
+			display: block;
+		}
 	}
 	.option{
 		strong{
