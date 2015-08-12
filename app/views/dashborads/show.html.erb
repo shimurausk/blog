@@ -3,7 +3,7 @@
 		<strong>Dashborad</strong>
 
 		<div class="new">
-			<p><%= link_to '新規投稿',new_article_path, :class => "pure-button pure-button-primary" %></p>	
+			<p><%= link_to '新規投稿',new_article_path,'data-no-turbolink' => true ,:class => "pure-button pure-button-primary" %></p>	
 		</div>
 
 		<div class="table-responsive">
@@ -22,7 +22,7 @@
 			<% @articles.each do |article|  %>
 				<tr>
 					<td><%= link_to article.title, article_path(article) %>
-						<div><%= link_to '編集', edit_article_path(article), :class => "pure-button pure-button-primary" %> <%= link_to '削除', article_path(article), :class => "pure-button button-warning" , method: :delete,data:{confirm:"この記事を削除してもよろしいですか?"} %></div>
+					<div><%= link_to '編集', edit_article_path(article),'data-no-turbolink' => true, :class => "pure-button pure-button-primary" %> <%= link_to '削除', article_path(article), :class => "pure-button button-warning" , method: :delete,data:{confirm:"この記事を削除してもよろしいですか?"} %></div>
 					</td>
 					<td><%= article.status %></td>
 					<td><%= article.category %></td>

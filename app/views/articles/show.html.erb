@@ -10,7 +10,7 @@
 						  <strong><%= @articles.updated_at.strftime('%Y/%m/%d') %></strong>
 						  category:<span><%= link_to @articles.category, category_path(@articles.category) %></span>
 						  <% if @articles.tags.any? %>
-					      Tag:<span><%= raw @articles.tags.map(&:name).map { |t| link_to t, tag_path(@articles)}.join(', ') %></span>
+					      Tag:<span><%= raw @articles.tags.map(&:name).map { |t| link_to t, tag_path(t)}.join(', ') %></span>
 					    <% end %>
 				    </div>
 			      <div class="box"><%= markdown @articles.text %></div>
