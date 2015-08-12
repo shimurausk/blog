@@ -16,11 +16,7 @@
 </head>
 <body>
 <div class="adminbar">
-	<!-- user_signed_in? はユーザがログインしているか調べるdeviseのHelperメソッド -->
-    <% if user_signed_in? %> 
-      <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
-      <!-- *_path はUserモデルを作成したときに、
-        deviseにより自動で作成されてますので、rake routesで確認できます -->
+    <% if user_signed_in? %>
       Logged in as <strong><%= current_user.email %></strong>.
       <%= link_to 'プロフィール変更', edit_user_registration_path %> |
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> |
