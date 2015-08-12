@@ -26,11 +26,9 @@
   </div>
 </section>
 <script type="text/javascript">
-    $(function () {
-        $('button').click(function(){
-          window.history.back(-1);
-          return false;
-        });
-    });
+    document.getElementsByTagName('button')[0].addEventListener("click",function(){
+      window.history.back(-1);
+      return false;
+    }),false;
 </script>
 <%= render 'articles/footer' %>
