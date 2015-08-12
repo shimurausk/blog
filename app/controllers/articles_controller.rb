@@ -67,8 +67,8 @@ class ArticlesController < ApplicationController
 		if @article.save
 			redirect_to @article
 			else
-				# all_category
-				# all_tag
+				all_category
+				all_tag
 				render 'new'
 		end
 		

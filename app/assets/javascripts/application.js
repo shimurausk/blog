@@ -15,17 +15,26 @@
 //= require turbolinks
 //= require_tree .
 
-$(function () {
-  $('.btn_toggle').click(function(){
-  	var which = $(this).parents('.pure-control-group').find('select').attr('class');
-  	if($(this).next().is('.new_category')){
-  		$(this).next().remove();
-  		$(this).text('New '+which);
-  	} else {
-  		var html = '<div class="new_category"><input class="form-control inline" id="article_category" name="article[category]" placeholder="新規カテゴリー" type="text"></div>';
-      $(this).parent().append(html);
-      $(this).text('キャンセル');
-  	}
-  });
 
-});
+var AddItem = function(e){
+  add_input = document.createElement("input");
+  add_input.setAttribute("name","article["+ (this.id === "category" ? this.id:this.id+"_list") +"]");
+  addElement(this.parentElement,'input',add_input);
+}
+
+var addElement = function(e,node,addnode){
+  e.getElementsByTagName(node).length > 0 ? '':e.appendChild(addnode);
+}
+
+var removeItem = function(e){
+  this.parentElement.removeChild(this.parentElement.getElementsByTagName('input')[0])
+}
+
+window.onload = function(){
+  if(document.getElementById("category") !== null){
+    document.getElementById("category").addEventListener("click",AddItem,false);
+    document.getElementById("tag").addEventListener("click",AddItem,false);
+    document.getElementById("article_category").addEventListener("change",removeItem,false);
+    document.getElementById("article_tag_list").addEventListener("change",removeItem,false);  
+  }
+}
