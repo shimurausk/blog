@@ -8,6 +8,8 @@ class Article < ActiveRecord::Base
   validates :category,presence: true
   #mount_uploader :avatar, ImageUploader
   STATUS = {:draft => 0, :public => 1, :limited => 2 }
+
+  paginates_per 5
   
   def self.tagged_with(name)
   	Tag.find_by_name!(name).articles

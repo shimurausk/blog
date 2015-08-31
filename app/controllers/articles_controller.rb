@@ -52,6 +52,10 @@ class ArticlesController < ApplicationController
 
 	end
 
+	def pagenation
+		@item = Article.page(params[:page]).per(5).order("created_at DESC")
+	end
+
 	def related_post
 		@article = Article.all
 	end
@@ -82,6 +86,7 @@ class ArticlesController < ApplicationController
 		@articles = Article.all.order("id DESC")
 		@article = Article.new
 		@tags = Tag.all
+		pagenation
 	end
 
 	def edit

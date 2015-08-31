@@ -85,6 +85,31 @@ body{
 	.text{
 		color: #666;
 	}
+	.pagination{
+		text-align: center;
+		padding-bottom: 8px;
+		.first,.prev,.next,.last{
+			display: none;
+		}
+		.page {
+			display: inline;
+		}
+		.page a {
+			display: -moz-inline-box;
+			display: inline-block;
+			padding: 4px 8px;
+	    border: 1px solid #ccc;
+	    color: #fff;
+	    background: #333;
+	    border-radius: 20px;
+	    width: 20px;
+		}
+		.page a:hover {
+			border: 1px solid #464646;
+			background: #464646;
+			color: #fff;
+		}
+	}
 }
 
 .postslist {
