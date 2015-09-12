@@ -31,9 +31,10 @@ body{
 }
 
 .header{
-	margin: 0 $basemargin*6;
+	margin: 0 auto;
 	padding: 0 0 $basemargin;
 	border-bottom: 1px solid $basebgcolor;
+	width: 95%;
 	.h1{
 		margin: $basemargin 0 0;
 	}
@@ -99,8 +100,7 @@ body{
 			display: inline-block;
 			padding: 4px 8px;
 	    border: 1px solid #ccc;
-	    color: #fff;
-	    background: #333;
+	    color: #333;
 	    border-radius: 20px;
 	    width: 20px;
 		}
@@ -229,8 +229,6 @@ body{
 
 @media only screen and (max-width: 768px) {
 	.header {
-		margin:0 auto;
-		width: 95%;
 		ul{
 			li{
 					position: absolute;
@@ -251,6 +249,11 @@ body{
 			.sns_btn {
 			  padding-left: 0;
 			}
+		}
+	}
+	.pagination{
+		.page {
+			margin: 0 8px;
 		}
 	}
 	.sidenavi{
