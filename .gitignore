@@ -31,5 +31,3 @@ doc/
 
 config/database.yml
 db/data.yml
-
-config/environments/
