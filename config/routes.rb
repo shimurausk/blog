@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'options/index'
+
   get 'contacts' => 'contacts#index'
   match 'contacts/confirm' ,:via => :post
   match 'contacts/create' ,:via => :post
@@ -51,7 +53,7 @@ match 'articles/search',to:'articles#search',via:['post','get']
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-    #resources :dashborads
+    resources :options
     resource :dashborads
     resources :articles do
       resources :comments

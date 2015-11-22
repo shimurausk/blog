@@ -1,0 +1,21 @@
+<% if user_signed_in? %> 
+	<div class="dev">
+		<h1>Option</h1>
+		<%= form_for @options, html:{class:"pure-form pure-form-stacked"} do |f| %>
+			<dl class="dlTable">
+			  <dt class="dt">サイトアドレス (URL)</dt>
+				<dd class="dd"><%= f.text_field :siteurl, :class => "form-control" %></dd>
+				<dt class="dt">サイトのタイトル</dt>
+				<dd class="dd"><%= f.text_field :blogname, :class => "form-control" %></dd>
+				<dt class="dt">キャッチフレーズ</dt>
+	      <dd class="dd"><%= f.text_area :blogdescription, :class => "form-control" %></dd>
+	      <dt class="dt">週の始まり</dt>
+	      <dd class="dd"><%= f.text_field :startofweek, :class => "form-control" %></dd>
+			</dl>
+			<div class="pure-control-group">
+				<%= f.submit  :class => "pure-button pure-button-primary"%>
+				<%= link_to 'back to dashborad',dashborads_path,:class => 'pure-button' %>
+			</div>
+		<% end %>
+	</div>
+<% end %>
