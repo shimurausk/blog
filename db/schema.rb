@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150503152009) do
+ActiveRecord::Schema.define(version: 20151122085741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,15 @@ ActiveRecord::Schema.define(version: 20150503152009) do
   create_table "dashborads", force: true do |t|
     t.string   "user"
     t.string   "set"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "options", force: true do |t|
+    t.string   "siteurl"
+    t.string   "blogname"
+    t.text     "blogdescription"
+    t.integer  "startofweek"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
