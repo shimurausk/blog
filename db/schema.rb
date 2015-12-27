@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 20151219114654) do
     t.datetime "updated_at"
   end
 
+  add_index "categories", ["name"], name: "categories_name_key", unique: true, using: :btree
+
   create_table "comments", force: true do |t|
     t.string   "commenter"
     t.text     "body"
