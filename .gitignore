@@ -31,3 +31,4 @@ doc/
 
 config/database.yml
 db/data.yml
+db/*.csv
