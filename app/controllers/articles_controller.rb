@@ -7,11 +7,10 @@ class ArticlesController < ApplicationController
 	before_action :search_form
 
 	def get_category
-		#@articles_have_category = Blog.where("category not?",nil)
 		@articles_have_category = Article.where(status:'public')
 		@articles_category = []
 		@articles_have_category.each do |c|
-			@articles_category.push(c.category)
+		  @articles_category.push(Category.find(c.article_categories.find(c[:id]).category_id).name)
 		end
 		@articles_category = @articles_category.uniq()
 	end
@@ -40,7 +39,13 @@ class ArticlesController < ApplicationController
 	end
 
 	def category
-		@categorys = Article.where(category: params[:category])
+		@article = Article.all
+		@categories = []
+		@articles.each do |article|
+			if Category.find(article.article_categories.find(article.id).category_id).name == params[:category]
+			  @categories.push(article)
+		  end
+		end
 	end
 
 	def tag
@@ -86,6 +91,7 @@ class ArticlesController < ApplicationController
 		@articles = Article.all.order("id DESC")
 		@article = Article.new
 		@tags = Tag.all
+		#Category.find(@article.article_categories.find(@article.id).category_id).name
 		pagenation
 	end
 

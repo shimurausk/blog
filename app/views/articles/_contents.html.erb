@@ -5,7 +5,7 @@
 			  <h2><%= d.title %></h2>
 				<div class="option">
 				  <strong><%= d.updated_at.strftime('%Y/%m/%d') %></strong>
-				  	Category:<span><%= link_to d.category, category_path(d.category) %></span>
+				  	Category:<span><%= link_to Category.find(d.article_categories.find(d.id).category_id).name, category_path(d.category) %></span>
 				  <% if d.tags.any? %>
 			      Tag:<span><%= raw d.tags.map(&:name).map { |t| link_to t, tag_path(t)}.join(', ') %></span>
 			    <% end %>
