@@ -103,7 +103,7 @@ class ArticlesController < ApplicationController
 
 	def update
 		@article = Article.find(params[:id])
-
+		binding.pry
 		if @article.update(article_params)
 			redirect_to @article
 			else
@@ -122,6 +122,6 @@ class ArticlesController < ApplicationController
 
 	private
 		def article_params
-			params.require(:article).permit(:title,:text,:status,:avatar,:tag_list,:category)
+			params.require(:article).permit(:title,:text,:status,:avatar,:tag_list,:category_id,:category_name)
 		end
 end

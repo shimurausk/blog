@@ -32,7 +32,8 @@ module ApplicationHelper
   def all_category
   	@all_category = []
   	(@articles = Article.all).each do |article|
-  		@all_category.push([article.category,article.category])
+  		#@all_category.push(Category.find(article.article_categories.find(article[:id]).category_id).name)
+      @all_category.push(article.category_id)
   	end
   	@all_category.uniq!
   end

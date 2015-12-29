@@ -31,8 +31,15 @@ class Article < ActiveRecord::Base
   	end	
   end
 
-	def draft
+  def category_id
+    self.article_categories.find(self.id).category_id
+  end
 
+  def category_name
+    Category.find(self.category_id).name
+  end
+
+	def draft
 		#self.status = STATUS[:reading]
 	end
 end

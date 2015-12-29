@@ -8,7 +8,7 @@
 			      <h2><%= @articles.title %></h2>
 						<div class="option">
 						  <strong><%= @articles.updated_at.strftime('%Y/%m/%d') %></strong>
-						  category:<span><%= link_to Category.find(@articles.article_categories.find(@articles.id).category_id).name, category_path(@articles.category) %></span>
+						  category:<span><%= link_to @articles.category_name, category_path(@articles.category) %></span>
 						  <% if @articles.tags.any? %>
 					      Tag:<span><%= raw @articles.tags.map(&:name).map { |t| link_to t, tag_path(t)}.join(', ') %></span>
 					    <% end %>

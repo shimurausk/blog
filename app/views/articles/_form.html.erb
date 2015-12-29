@@ -19,9 +19,10 @@
 		<%= f.label :text %>
 		<%= f.text_area :text, :class => "form-control" %>
 	</div>
+	<%# binding.pry %>
 	<div class="pure-control-group">
-		<%= f.label :category %>
-		<%= f.select :category,options_for_select(@all_category),{:prompt => 'カテゴリーを選択'}, {:class => 'form-control category'} %>
+		<%= f.label :category_id %>
+		<%= f.select :category_id,options_for_select(@all_category),{:prompt => 'カテゴリーを選択'}, {:class => 'form-control category'} %>
 		<span id="category" class="btn_toggle pure-button">新規カテゴリー</span>
 	</div>
 	<div class="pure-control-group">
