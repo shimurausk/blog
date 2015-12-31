@@ -35,6 +35,10 @@ class Article < ActiveRecord::Base
     self.article_categories.find(self.id).category_id
   end
 
+  def category_id=(category_id)
+    return category_id
+  end
+
   def category_name
     Category.find(self.category_id).name
   end

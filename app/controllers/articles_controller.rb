@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
 		@articles_have_category = Article.where(status:'public')
 		@articles_category = []
 		@articles_have_category.each do |c|
-		  @articles_category.push(Category.find(c.article_categories.find(c[:id]).category_id).name)
+		  @articles_category.push(c.category_name)
 		end
 		@articles_category = @articles_category.uniq()
 	end
@@ -42,10 +42,11 @@ class ArticlesController < ApplicationController
 		@article = Article.all
 		@categories = []
 		@articles.each do |article|
-			if Category.find(article.article_categories.find(article.id).category_id).name == params[:category]
+			if article.category_name == params[:category]
 			  @categories.push(article)
 		  end
 		end
+		pagenation
 	end
 
 	def tag
@@ -103,8 +104,9 @@ class ArticlesController < ApplicationController
 
 	def update
 		@article = Article.find(params[:id])
-		binding.pry
+
 		if @article.update(article_params)
+			ArticleCategory.update(params[:id], :category_id => article_params[:category_id])
 			redirect_to @article
 			else
 			all_category
