@@ -26,7 +26,7 @@
 	</div>
 	<div class="pure-control-group">
 		<%= f.label :tag_list %>
-		<%= f.select :tag_list,options_for_select(@all_tag),{:prompt => 'タグを選択'}, {:class => 'form-control tag'} %>
+		<%= f.select :tag_list,options_for_select(@all_tag,:selected =>@article.tag_list),{:prompt => 'タグを選択'}, {:class => 'form-control tag'} %>
 		<span id="tag" class="btn_toggle pure-button">新規タグ</span>
 	</div>
 	<div class="pure-control-group">

@@ -81,7 +81,7 @@ class ArticlesController < ApplicationController
 				all_tag
 				render 'new'
 		end
-		
+
 	end
 
 	def show
@@ -92,7 +92,6 @@ class ArticlesController < ApplicationController
 		@articles = Article.all.order("id DESC")
 		@article = Article.new
 		@tags = Tag.all
-		#Category.find(@article.article_categories.find(@article.id).category_id).name
 		pagenation
 	end
 
@@ -113,13 +112,13 @@ class ArticlesController < ApplicationController
 			all_tag
 			render 'edit'
 		end
-		
+
 	end
 
 	def destroy
 		@article = Article.find(params[:id])
 		@article.destroy
-		redirect_to articles_path		
+		redirect_to articles_path
 	end
 
 	private
