@@ -7,7 +7,7 @@ class Article < ActiveRecord::Base
   has_many :categories,through: :article_categories
   validates :title, presence: true,
             length: { minimum: 5 }
-  #mount_uploader :avatar, ImageUploader
+  mount_uploader :avatar, ImageUploader
   STATUS = {:draft => 0, :public => 1, :limited => 2 }
 
   paginates_per 5

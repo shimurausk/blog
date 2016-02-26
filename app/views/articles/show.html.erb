@@ -1,5 +1,5 @@
 <%= render 'header' %>
-<% if @articles.status == 'public' or user_signed_in? %>	
+<% if @articles.status == 'public' or user_signed_in? %>
 <section>
   <div class="contents blog pure-g">
     <div class="postslist pure-u-1 pure-u-md-2-3">
@@ -13,7 +13,7 @@
 					      Tag:<span><%= raw @articles.tags.map(&:name).map { |t| link_to t, tag_path(t)}.join(', ') %></span>
 					    <% end %>
 				    </div>
-			      <div class="box"><%= markdown @articles.text %></div>
+			      <div class="box"><%= image_tag @articles.avatar.url %><%= markdown @articles.text %></div>
 			      <%= render 'sns' %>
 			</article>
     </div>

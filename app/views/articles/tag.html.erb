@@ -5,7 +5,7 @@
     <div class="postslist pure-u-1 pure-u-md-2-3">
       <article>
 				<% @tag.each do |d| %>
-					<% if d.status == 'public' %>		
+					<% if d.status == 'public' %>
 				  	<div class="post">
 						  <h2><%= d.title %></h2>
 						  <div class="option">
@@ -13,7 +13,7 @@
 							  Category:<span><%= link_to d.category_name, category_path(d.category_name) %></span>
 						    Tag:<span><%= raw d.tags.map(&:name).map { |t| link_to t, tag_path(t)}.join(', ') %></span>
 					    </div>
-						  <div class="box"><%#= image_tag d.avatar.url %><%= markdown d.text %></div>
+						  <div class="box"><%= image_tag d.avatar.url %><%= markdown d.text %></div>
 						  <div class="more">
 						  	<%= link_to '続きを見る', article_path(d), :class => "pure-button" %>
 						  </div>

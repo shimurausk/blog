@@ -159,7 +159,7 @@ body{
 		margin-right: -$basemargin;
 		li{
 			float: left;
-			margin-right: $basemargin; 
+			margin-right: $basemargin;
 		}
 	}
 }
@@ -191,7 +191,11 @@ body{
 			background: $baselinkcolor;
 			color: white;
 			box-shadow: 1px 1px 4px #999;
+      .thumb {
+        height: 346px;
+      }
 		}
+
 		h3 {
 			margin: $basemargin/2 0;
 		}
@@ -203,7 +207,7 @@ body{
 		}
 	}
 }
- 
+
 .footer{
 	background: #efefef;
 	padding: $basemargin*2 $basemargin*6;
@@ -228,7 +232,7 @@ body{
 		}
 		.new_category,.new_tag{
 			//display: none;
-		}	
+		}
 	}
 }
 
@@ -277,11 +281,3 @@ body{
 		}
 	}
 }
-
-
-
-
-
-
-
-

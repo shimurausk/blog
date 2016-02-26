@@ -10,7 +10,7 @@
 			      Tag:<span><%= raw d.tags.map(&:name).map { |t| link_to t, tag_path(t)}.join(', ') %></span>
 			    <% end %>
 		    </div>
-			  <div class="box"><%= markdown d.text %></div>
+			  <div class="box"><%= image_tag d.avatar.url,:class => "thumb"  %><%= markdown d.text %></div>
 			  <div class="more">
 			  	<%= link_to '続きを見る', article_path(d), :class => "pure-button" %>
 			  </div>
