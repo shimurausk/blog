@@ -135,8 +135,26 @@ body{
 	margin-bottom: $basemargin*4;
 	padding: 0 $basemargin*2;
 	color: $basetextcolor;
-	.box{
+  .box{
 		margin: $basemargin 0;
+  }
+	.box_i{
+		margin: $basemargin 0;
+    overflow: hidden;
+    .icatch{
+      float: left;
+      margin-right: $basemargin;
+      img{
+        width: 240px;
+      }
+    }
+    .itext{
+        overflow: hidden;
+        height: 312px;
+      p{
+        margin: 0;
+      }
+    }
 		code{
 			padding: 16px;
 			border: 1px solid #eee;
@@ -191,9 +209,6 @@ body{
 			background: $baselinkcolor;
 			color: white;
 			box-shadow: 1px 1px 4px #999;
-      .thumb {
-        height: 346px;
-      }
 		}
 
 		h3 {

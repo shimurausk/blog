@@ -13,7 +13,14 @@
 							  Category:<span><%= link_to d.category_name, category_path(d.category_name) %></span>
 						    Tag:<span><%= raw d.tags.map(&:name).map { |t| link_to t, tag_path(t)}.join(', ') %></span>
 					    </div>
-						  <div class="box"><%= image_tag d.avatar.url %><%= markdown d.text %></div>
+              <% if d.avatar.url.present? %>
+              <div class="box_i">
+                <div class="icatch"><%= image_tag d.avatar.url,:class => "thumb"  %></div>
+              <% else %>
+              <div class="box">
+              <% end %>
+                <div class="itext"><%= markdown d.text %></div>
+              </div>
 						  <div class="more">
 						  	<%= link_to '続きを見る', article_path(d), :class => "pure-button" %>
 						  </div>

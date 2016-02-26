@@ -13,7 +13,7 @@
 					      Tag:<span><%= raw @articles.tags.map(&:name).map { |t| link_to t, tag_path(t)}.join(', ') %></span>
 					    <% end %>
 				    </div>
-			      <div class="box"><%= image_tag @articles.avatar.url %><%= markdown @articles.text %></div>
+			      <div class="box"><%= markdown @articles.text %></div>
 			      <%= render 'sns' %>
 			</article>
     </div>
