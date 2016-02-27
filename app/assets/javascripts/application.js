@@ -18,7 +18,7 @@
 
 var AddItem = function(e){
   add_input = document.createElement("input");
-  add_input.setAttribute("name","article["+ (this.id === "category" ? this.id:this.id+"_list") +"]");
+  add_input.setAttribute("name","article["+ (this.id === "category" ? this.id+"_id":this.id+"_list") +"]");
   addElement(this.parentElement,'input',add_input);
 }
 

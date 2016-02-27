@@ -7,11 +7,10 @@ class ArticlesController < ApplicationController
 	before_action :search_form
 
 	def get_category
-		#@articles_have_category = Blog.where("category not?",nil)
 		@articles_have_category = Article.where(status:'public')
 		@articles_category = []
 		@articles_have_category.each do |c|
-			@articles_category.push(c.category)
+		  @articles_category.push(c.category_name)
 		end
 		@articles_category = @articles_category.uniq()
 	end
@@ -40,7 +39,14 @@ class ArticlesController < ApplicationController
 	end
 
 	def category
-		@categorys = Article.where(category: params[:category])
+		@article = Article.all
+		@categories = []
+		@articles.each do |article|
+			if article.category_name == params[:category]
+			  @categories.push(article)
+		  end
+		end
+		pagenation
 	end
 
 	def tag
@@ -75,7 +81,7 @@ class ArticlesController < ApplicationController
 				all_tag
 				render 'new'
 		end
-		
+
 	end
 
 	def show
@@ -99,23 +105,24 @@ class ArticlesController < ApplicationController
 		@article = Article.find(params[:id])
 
 		if @article.update(article_params)
+			ArticleCategory.update(params[:id], :category_id => article_params[:category_id])
 			redirect_to @article
 			else
 			all_category
 			all_tag
 			render 'edit'
 		end
-		
+
 	end
 
 	def destroy
 		@article = Article.find(params[:id])
 		@article.destroy
-		redirect_to articles_path		
+		redirect_to articles_path
 	end
 
 	private
 		def article_params
-			params.require(:article).permit(:title,:text,:status,:avatar,:tag_list,:category)
+			params.require(:article).permit(:title,:text,:status,:avatar,:tag_list,:category_id,:category_name)
 		end
 end

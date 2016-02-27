@@ -31,20 +31,16 @@ module ApplicationHelper
 
   def all_category
   	@all_category = []
-  	(@articles = Article.all).each do |article|
-  		@all_category.push([article.category,article.category])
-  	end
-  	@all_category.uniq!
+    (@categories = Category.all).each do |category|
+      @all_category.push(category.id)
+    end
   end
 
   def all_tag
   	@all_tag = []
-  	(@articles = Article.all).each do |article|
-  		(tags = article.tags).each do |tag|
-	  		@all_tag.push([tag.name,tag.name])
-	  	end
-  	end
-  	@all_tag.uniq!
+    (@tags = Tag.all).each do |tag|
+      @all_tag.push([tag.name,tag.name])
+    end
   end
 
 end

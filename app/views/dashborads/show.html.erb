@@ -25,7 +25,7 @@
 					<div><%= link_to '編集', edit_article_path(article),'data-no-turbolink' => true, :class => "pure-button pure-button-primary" %> <%= link_to '削除', article_path(article), :class => "pure-button button-warning" , method: :delete,data:{confirm:"この記事を削除してもよろしいですか?"} %></div>
 					</td>
 					<td><%= article.status %></td>
-					<td><%= article.category %></td>
+					<td><%= article.category_name %></td>
 					<td><%= article.tags.map(&:name).map {|t| t}.join(', ') %></td>
 					<td><%= article.comments.any? ? 'あり':'なし' %></td>
 					<td><%= article.updated_at.strftime('%Y/%m/%d %H:%M:%S')  %></td>

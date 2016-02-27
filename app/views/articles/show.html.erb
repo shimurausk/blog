@@ -1,5 +1,5 @@
 <%= render 'header' %>
-<% if @articles.status == 'public' or user_signed_in? %>	
+<% if @articles.status == 'public' or user_signed_in? %>
 <section>
   <div class="contents blog pure-g">
     <div class="postslist pure-u-1 pure-u-md-2-3">
@@ -8,7 +8,7 @@
 			      <h2><%= @articles.title %></h2>
 						<div class="option">
 						  <strong><%= @articles.updated_at.strftime('%Y/%m/%d') %></strong>
-						  category:<span><%= link_to @articles.category, category_path(@articles.category) %></span>
+						  category:<span><%= link_to @articles.category_name, category_path(@articles.category_name) %></span>
 						  <% if @articles.tags.any? %>
 					      Tag:<span><%= raw @articles.tags.map(&:name).map { |t| link_to t, tag_path(t)}.join(', ') %></span>
 					    <% end %>

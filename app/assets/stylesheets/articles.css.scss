@@ -135,8 +135,26 @@ body{
 	margin-bottom: $basemargin*4;
 	padding: 0 $basemargin*2;
 	color: $basetextcolor;
-	.box{
+  .box{
 		margin: $basemargin 0;
+  }
+	.box_i{
+		margin: $basemargin 0;
+    overflow: hidden;
+    .icatch{
+      float: left;
+      margin-right: $basemargin;
+      img{
+        width: 240px;
+      }
+    }
+    .itext{
+        overflow: hidden;
+        height: 312px;
+      p{
+        margin: 0;
+      }
+    }
 		code{
 			padding: 16px;
 			border: 1px solid #eee;
@@ -159,7 +177,7 @@ body{
 		margin-right: -$basemargin;
 		li{
 			float: left;
-			margin-right: $basemargin; 
+			margin-right: $basemargin;
 		}
 	}
 }
@@ -192,6 +210,7 @@ body{
 			color: white;
 			box-shadow: 1px 1px 4px #999;
 		}
+
 		h3 {
 			margin: $basemargin/2 0;
 		}
@@ -203,7 +222,7 @@ body{
 		}
 	}
 }
- 
+
 .footer{
 	background: #efefef;
 	padding: $basemargin*2 $basemargin*6;
@@ -228,7 +247,7 @@ body{
 		}
 		.new_category,.new_tag{
 			//display: none;
-		}	
+		}
 	}
 }
 
@@ -277,11 +296,3 @@ body{
 		}
 	}
 }
-
-
-
-
-
-
-
-
