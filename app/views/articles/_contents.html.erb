@@ -1,5 +1,5 @@
 <article>
-  	<% @articles.each do |d| %>
+  	<% @items.each do |d| %>
   		<% if d.status == 'public' %>
 	  		<div class="post">
 			  <h2><%= d.title %></h2>
@@ -16,7 +16,7 @@
         <% else %>
         <div class="box">
         <% end %>
-          <div class="itext"><%= markdown d.text %></div>
+          <div class="itext"><%= markdown d.text.truncate(20) %></div>
         </div>
 			  <div class="more">
 			  	<%= link_to '続きを見る', article_path(d), :class => "pure-button" %>
@@ -24,6 +24,5 @@
 			</div>
 		 <% end %>
 	 <% end %>
-
-	 <%= paginate(@item) %>
+   <%= paginate @items %>
 </article>

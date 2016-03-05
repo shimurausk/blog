@@ -3,31 +3,7 @@
 <section>
   <div class="contents blog pure-g">
     <div class="postslist pure-u-1 pure-u-md-2-3">
-      <article>
-				<% @tag.each do |d| %>
-					<% if d.status == 'public' %>
-				  	<div class="post">
-						  <h2><%= d.title %></h2>
-						  <div class="option">
-							  <strong><%= d.updated_at.strftime('%Y/%m/%d') %></strong>
-							  Category:<span><%= link_to d.category_name, category_path(d.category_name) %></span>
-						    Tag:<span><%= raw d.tags.map(&:name).map { |t| link_to t, tag_path(t)}.join(', ') %></span>
-					    </div>
-              <% if d.avatar.url.present? %>
-              <div class="box_i">
-                <div class="icatch"><%= image_tag d.avatar.url,:class => "thumb"  %></div>
-              <% else %>
-              <div class="box">
-              <% end %>
-                <div class="itext"><%= markdown d.text %></div>
-              </div>
-						  <div class="more">
-						  	<%= link_to '続きを見る', article_path(d), :class => "pure-button" %>
-						  </div>
-						</div>
-					<% end %>
-				<% end %>
-			</article>
+      <%= render 'contents' %>
     </div>
     <div class="sidenavi pure-u-1 pure-u-md-1-3">
       <%= render 'side' %>

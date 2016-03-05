@@ -277,6 +277,25 @@ body{
 		border-bottom: 1px solid #ccc;
 		.post{
 			padding: 0;
+      .box_i{
+    		margin: $basemargin 0;
+        overflow: hidden;
+        .icatch{
+          float: none;
+          margin-right: 0;
+          text-align: center;
+          img{
+            width: 240px;
+          }
+        }
+        .itext{
+            overflow: hidden;
+            height: auto;
+          p{
+            margin: 0;
+          }
+        }
+      }
 			.sns_btn {
 			  padding-left: 0;
 			}

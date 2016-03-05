@@ -39,27 +39,27 @@ class ArticlesController < ApplicationController
 	end
 
 	def category
-		@article = Article.all
-		@categories = []
-		@articles.each do |article|
+		@articles = []
+		Article.all.each do |article|
 			if article.category_name == params[:category]
-			  @categories.push(article)
+			  @articles.push(article)
 		  end
 		end
 		pagenation
 	end
 
 	def tag
-		@tag = Tag.find_by_name(params[:tag]).articles
+		@articles = Tag.find_by_name(params[:tag]).articles
+		pagenation
 	end
 
 	def search
 		@articles = Article.search(params[:q]).result().reverse()
-
+		pagenation
 	end
 
 	def pagenation
-		@item = Article.page(params[:page]).per(5).order("created_at DESC")
+		@items = Kaminari.paginate_array(@articles).page(params[:page]).per(5)
 	end
 
 	def related_post
@@ -89,10 +89,9 @@ class ArticlesController < ApplicationController
 	end
 
 	def index
-		@articles = Article.all.order("id DESC")
+		@items = Article.all.order("id DESC").page(params[:page])
 		@article = Article.new
 		@tags = Tag.all
-		pagenation
 	end
 
 	def edit
