@@ -1,5 +1,5 @@
 
-<%= form_for @article, html:{class:"pure-form pure-form-stacked"} do |f| %>
+<%= form_for @article, html:{class:"form-group"} do |f| %>
 
 	<% if @article.errors.any? %>
 		<div id="error_explanation">
@@ -11,35 +11,35 @@
 		</div>
 	<% end %>
 
-	<div class="pure-control-group">
+	<div class="form-group">
 		<%= f.label :title %>
 		<%= f.text_field :title, :class => "form-control" %>
 	</div>
-	<div class="pure-control-group">
+	<div class="form-group">
 		<%= f.label :text %>
 		<%= f.text_area :text, :class => "form-control" %>
 	</div>
-	<div class="pure-control-group">
+	<div class="form-group">
 		<%= f.label :category_id %>
 		<%= f.select :category_id,options_for_select(@all_category.map {|c| [Category.find(c).name,c]},:selected => @article.category_id),{:prompt => 'カテゴリーを選択'}, {:class => 'form-control category'} %>
-		<span id="category" class="btn_toggle pure-button">新規カテゴリー</span>
+		<span id="category" class="btn_toggle btn btn-default">新規カテゴリー</span>
 	</div>
-	<div class="pure-control-group">
+	<div class="form-group">
 		<%= f.label :tag_list %>
 		<%= f.select :tag_list,options_for_select(@all_tag,:selected =>@article.tag_list),{:prompt => 'タグを選択'}, {:class => 'form-control tag'} %>
-		<span id="tag" class="btn_toggle pure-button">新規タグ</span>
+		<span id="tag" class="btn_toggle btn btn-default">新規タグ</span>
 	</div>
-	<div class="pure-control-group">
+	<div class="form-group">
 		<%= f.label :avatar %>
 		<%= f.file_field :avatar %>
 	</div>
-	<div class="pure-control-group">
+	<div class="form-group">
 		<%= f.select :status,[["下書き","draft"],["公開","public"]] %>
 	</div>
 
-	<div class="pure-control-group">
-		<%= f.submit  :class => "pure-button pure-button-primary"%>
-		<%= link_to 'back to dashborad',dashborads_path,:class => 'pure-button' %>
+	<div class="form-group">
+		<%= f.submit  :class => "btn btn-primary"%>
+		<%= link_to 'back to dashborad',dashborads_path,:class => 'btn btn-default' %>
 	</div>
 	
 <% end %>

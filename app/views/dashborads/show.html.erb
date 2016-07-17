@@ -3,18 +3,17 @@
 		<strong>Dashborad</strong>
 
 		<div class="new">
-			<p><%= link_to '新規投稿',new_article_path,'data-no-turbolink' => true ,:class => "pure-button pure-button-primary" %></p>	
+			<p><%= link_to '新規投稿',new_article_path,'data-no-turbolink' => true ,:class => "btn btn-primary" %></p>	
 		</div>
 
 		<div class="table-responsive">
-			<table class="pure-table pure-table-bordered">
+			<table class="table table-bordered">
 			<thead>
 				<tr>
 					<th>タイトル</th>
 					<th>状態</th>
 					<th>カテゴリー</th>
 					<th>タグ</th>
-					<th>コメント</th>
 					<th>日時</th>
 				</tr>
 			</thead>
@@ -22,18 +21,17 @@
 			<% @articles.each do |article|  %>
 				<tr>
 					<td><%= link_to article.title, article_path(article) %>
-					<div><%= link_to '編集', edit_article_path(article),'data-no-turbolink' => true, :class => "pure-button pure-button-primary" %> <%= link_to '削除', article_path(article), :class => "pure-button button-warning" , method: :delete,data:{confirm:"この記事を削除してもよろしいですか?"} %></div>
+					<div><%= link_to '編集', edit_article_path(article),'data-no-turbolink' => true, :class => "btn btn-info" %> <%= link_to '削除', article_path(article), :class => "btn btn-danger" , method: :delete,data:{confirm:"この記事を削除してもよろしいですか?"} %></div>
 					</td>
 					<td><%= article.status %></td>
 					<td><%= article.category_name %></td>
 					<td><%= article.tags.map(&:name).map {|t| t}.join(', ') %></td>
-					<td><%= article.comments.any? ? 'あり':'なし' %></td>
 					<td><%= article.updated_at.strftime('%Y/%m/%d %H:%M:%S')  %></td>
 				</tr>
 			<% end %>
 			</tbody>
 			</table>
 		</div>
-		<p><%= link_to '設定',edit_option_path(1),'data-no-turbolink' => true ,:class => "pure-button" %></p>
+		<p><%= link_to '設定',edit_option_path(1),'data-no-turbolink' => true ,:class => "btn btn-default" %></p>
 	</div>
 <% end %>

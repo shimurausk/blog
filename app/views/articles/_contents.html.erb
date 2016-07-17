@@ -1,28 +1,29 @@
 <article>
   	<% @items.each do |d| %>
-  		<% if d.status == 'public' %>
-	  		<div class="post">
-			  <h2><%= d.title %></h2>
-				<div class="option">
-				  <strong><%= d.updated_at.strftime('%Y/%m/%d') %></strong>
-				  	Category:<span><%= link_to d.category_name, category_path(d.category_name) %></span>
-				  <% if d.tags.any? %>
-			      Tag:<span><%= raw d.tags.map(&:name).map { |t| link_to t, tag_path(t)}.join(', ') %></span>
-			    <% end %>
-		    </div>
-        <% if d.avatar.url.present? %>
-        <div class="box_i">
-          <div class="icatch"><%= image_tag d.avatar.url,:class => "thumb"  %></div>
-        <% else %>
-        <div class="box">
-        <% end %>
-          <div class="itext"><%= markdown d.text.truncate(20) %></div>
-        </div>
-			  <div class="more">
-			  	<%= link_to '続きを見る', article_path(d), :class => "pure-button" %>
-			  </div>
-			</div>
-		 <% end %>
-	 <% end %>
-   <%= paginate @items %>
+		  	<% if d.status == 'public' %>
+		  	<h2>
+		  	  <%= link_to d.title, article_path(d) %>
+				</h2>
+
+				<p class="lead">
+				</p>
+				<p>
+						<span class="glyphicon glyphicon-bookmark"><%= link_to d.category_name, category_path(d.category_name) %></span>
+					  <% if d.tags.any? %>
+				      <span class="glyphicon glyphicon-tag"><%= raw d.tags.map(&:name).map { |t| link_to t, tag_path(t)}.join(', ') %></span>
+				    <% end %>
+				    <span class="glyphicon glyphicon-time"></span> Posted on <%= d.updated_at.strftime('%Y/%m/%d') %>
+				</p>
+				<% if d.avatar.url.present? %>
+				<%= image_tag d.avatar.url,:class => "img-responsive"  %>
+				<% else %>
+				<% end %>
+				
+				<p><%= markdown d.text.truncate(20) %></p>
+				<%= link_to article_path(d),:class => "btn btn-primary" do %>
+				  続きを見る<span class="glyphicon glyphicon-chevron-right"></span>
+				<% end %>
+				<hr>
+	  		<% end %>
+		<% end %>
 </article>

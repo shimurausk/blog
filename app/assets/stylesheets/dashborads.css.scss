@@ -1,3 +1,19 @@
 // Place all the styles related to the dashborads controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.dev{
+	margin: 0 auto;
+	width: 95%;
+	strong {
+		font-size: 150%;
+	}
+	.pure-form-stacked{
+		.s_category,.s_tag{
+			display: inline;
+		}
+		.new_category,.new_tag{
+			//display: none;
+		}
+	}
+}

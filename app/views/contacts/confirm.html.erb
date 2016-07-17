@@ -1,34 +1,39 @@
 <%= render 'articles/header' %>
-<section>
-  <div class="contents contact pure-g">
-    <div class="pure-u-1">
-    	<h4 class="tbar">お問い合わせ</h4>
-	      <p>以下の内容でご予約を承ります。よろしいでしょうか？ </p>
+<!-- Page Content -->
+	<div class="container">
+	<section>
+	  <div class="contents contact row">
+	    <div class="">
+	    	<h4 class="tbar">お問い合わせ</h4>
+		      <p>以下の内容でご予約を承ります。よろしいでしょうか？ </p>
 
-	      <%= form_for @contact,:url => contacts_create_path,html:{class:"form-group contact_form"} do |f| %>
-	      <dl>
-	        <dt class="pure-u-1 pure-u-md-4-24"><%= f.label 'お名前' %></dt>
-	        <dd class="pure-u-1 pure-u-md-20-24"><%= f.hidden_field :name %><%= @contact.name %></dd>
-	        <dt class="pure-u-1 pure-u-md-4-24"><%= f.label 'メールアドレス' %></dt>
-	        <dd class="pure-u-1 pure-u-md-20-24"><%= f.hidden_field :email %><%= @contact.email %></dd>
-	        <dt class="pure-u-1 pure-u-md-4-24"><%= f.label 'お問い合わせ内容' %></dt>
-	        <dd class="pure-u-1 pure-u-md-20-24"><%= f.hidden_field :message %><%= @contact.message %></dd>
-	      </dl>
+		      <%= form_for @contact,:url => contacts_create_path,html:{class:"form-group contact_form"} do |f| %>
+		      <dl>
+		        <dt class=""><%= f.label 'お名前' %></dt>
+		        <dd class=""><%= f.hidden_field :name %><%= @contact.name %></dd>
+		        <dt class=""><%= f.label 'メールアドレス' %></dt>
+		        <dd class=""><%= f.hidden_field :email %><%= @contact.email %></dd>
+		        <dt class=""><%= f.label 'お問い合わせ内容' %></dt>
+		        <dd class=""><%= f.hidden_field :message %><%= @contact.message %></dd>
+		      </dl>
 
-	      <p class="tac">
-	        <%= button_tag(type: 'button',class:"pure-button") do
-	          content_tag(:span, '戻る')
-	        end %>
-	        <%= f.submit '送信',class:"pure-button pure-button-primary" %>
-	      </p>
-      <% end %>
-    </div>
-  </div>
-</section>
-<script type="text/javascript">
-    document.getElementsByTagName('button')[0].addEventListener("click",function(){
-      window.history.back(-1);
-      return false;
-    }),false;
-</script>
-<%= render 'articles/footer' %>
+		      <p class="submit">
+		        <%= button_tag(type: 'button',class:"btn btn-default") do
+		          content_tag(:span, '戻る')
+		        end %>
+		        <%= f.submit '送信',class:"btn btn-primary" %>
+		      </p>
+	      <% end %>
+	    </div>
+	  </div>
+	</section>
+	<script type="text/javascript">
+	    document.getElementsByTagName('button')[1].addEventListener("click",function(){
+	      window.history.back(-1);
+	      return false;
+	    }),false;
+	</script>
+	<hr>
+	<%= render 'articles/footer' %>
+</div>
+<!-- /.container -->

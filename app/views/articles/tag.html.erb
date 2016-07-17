@@ -1,14 +1,19 @@
 <%= render 'header' %>
-
-<section>
-  <div class="contents blog pure-g">
-    <div class="postslist pure-u-1 pure-u-md-2-3">
-      <%= render 'contents' %>
-    </div>
-    <div class="sidenavi pure-u-1 pure-u-md-1-3">
-      <%= render 'side' %>
-    </div>
-  </div>
-</section>
-
+<!-- Page Content -->
+<div class="container">
+  <!-- Blog Entries Column -->
+	<div class="row">
+		<div class="col-md-8">
+			<%= render 'contents' %>
+			<!-- Pager -->
+			<%= paginate @items %>
+			</ul> -->
+		</div>
+	<!-- Blog Sidebar Widgets Column -->
+	<%= render 'side' %>
+	</div>
+	<!-- /.row -->
+<hr>
 <%= render 'footer' %>
+</div>
+<!-- /.container -->

@@ -1,26 +1,40 @@
 <%= render 'header' %>
-<% if @articles.status == 'public' or user_signed_in? %>
-<section>
-  <div class="contents blog pure-g">
-    <div class="postslist pure-u-1 pure-u-md-2-3">
+<!-- Page Content -->
+<div class="container">
+  <!-- Blog Entries Column -->
+	<div class="row">
+	  <% if @articles.status == 'public' or user_signed_in? %>
+		<div class="col-md-8">
 			<article>
-				<div class="post">
-			      <h2><%= @articles.title %></h2>
-						<div class="option">
-						  <strong><%= @articles.updated_at.strftime('%Y/%m/%d') %></strong>
-						  category:<span><%= link_to @articles.category_name, category_path(@articles.category_name) %></span>
+			  	<h2>
+			  	  <%= link_to @articles.title, article_path(@articles) %>
+					</h2>
+
+					<p class="lead">
+					  
+					</p>
+					<p>
+							<span class="glyphicon glyphicon-bookmark"><%= link_to @articles.category_name, category_path(@articles.category_name) %></span>
 						  <% if @articles.tags.any? %>
-					      Tag:<span><%= raw @articles.tags.map(&:name).map { |t| link_to t, tag_path(t)}.join(', ') %></span>
+					      <span class="glyphicon glyphicon-tag"><%= raw @articles.tags.map(&:name).map { |t| link_to t, tag_path(t)}.join(', ') %></span>
 					    <% end %>
-				    </div>
-			      <div class="box"><%= markdown @articles.text %></div>
-			      <%= render 'sns' %>
+					    <span class="glyphicon glyphicon-time"></span> Posted on <%= @articles.updated_at.strftime('%Y/%m/%d') %>
+					</p>
+					<% if @articles.avatar.url.present? %>
+					<%= image_tag @articles.avatar.url,:class => "img-responsive"  %>
+					<% else %>
+					<% end %>
+					
+					<p><%= markdown @articles.text %></p>
+					<%= render 'sns' %>
 			</article>
-    </div>
-    <div class="sidenavi pure-u-1 pure-u-md-1-3">
-      <%= render 'side' %>
-    </div>
-  </div>
-</section>
-<% end %>
+		</div>
+		<% end %>
+	<!-- Blog Sidebar Widgets Column -->
+	<%= render 'side' %>
+	</div>
+	<!-- /.row -->
+<hr>
 <%= render 'footer' %>
+</div>
+<!-- /.container -->
